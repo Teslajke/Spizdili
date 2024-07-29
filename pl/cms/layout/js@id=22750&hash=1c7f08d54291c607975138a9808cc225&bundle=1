@@ -1,0 +1,89 @@
+window.addEventListener('DOMContentLoaded', () => {
+    // Включаем (значение 1) или выключаем (значение 0) захват UTM-меток в ЗАКАЗЫ
+    const UTMSDealFunction = 1;
+
+    // Включаем (значение 1) или выключаем (значение 0) захват UTM-меток в ПОЛЬЗОВАТЕЛЯ
+    const UTMSUserFunction = 0;
+
+    // Включаем (значение 1) или выключаем (значение 0) захват страницы создания заказа на GetCourse
+    const getPageFunction = 1;
+
+    // Прописываем только ID наших созданных полей по ЗАКАЗАМ
+    const UTMSDeal = [
+        ['utm_source', 'input[name="formParams[dealCustomFields][1407971]'],
+        ['utm_medium', 'input[name="formParams[dealCustomFields][1435631]'],
+        ['utm_campaign', 'input[name="formParams[dealCustomFields][1435640]'],
+        ['utm_content', 'input[name="formParams[dealCustomFields][1470432]'],
+        ['utm_term', 'input[name="formParams[dealCustomFields][1470433]'],
+    ];
+
+    // Прописываем только ID наших созданных полей по ПОЛЬЗОВАТЕЛЯМ
+    const UTMSUser = [
+        ['utm_source', 'input[name="formParams[userCustomFields][ID доп. поля 1]'],
+        ['utm_medium', 'input[name="formParams[userCustomFields][ID доп. поля 2]'],
+        ['utm_campaign', 'input[name="formParams[userCustomFields][ID доп. поля 3]'],
+        ['utm_content', 'input[name="formParams[userCustomFields][ID доп. поля 4]'],
+        ['utm_term', 'input[name="formParams[userCustomFields][ID доп. поля 5]'],
+    ];
+
+    // Прописываем только ID нашего созданного поля по ЗАКАЗАМ
+    const pageOrderInput = 'input[name="formParams[dealCustomFields][1470554]';
+
+    // Функция для получения параметров UTM
+    const getUTM = (name, inputSelector) => {
+        const inputs = document.querySelectorAll(inputSelector);
+
+        if (inputs.length === 0) return;
+
+        // Записываем в переменную полное значение ссылки в поисковой строке и преобразовываем ее в нормальный вид
+        const searchParams = decodeURIComponent(decodeURIComponent(window.location.href));
+
+        // В переменную записываем итог регулярного выражения
+        const result = searchParams.match(new RegExp(name + '=([^&=#]+)'));
+
+        // Если нашлось соответствие, то записываем в input значение
+        if (result && result !== null) {
+            inputs.forEach(input => {
+                input.value = decodeURI(result[1]);
+            });
+        }
+    };
+
+    // Функция для получения страницы создания заказа на GetCourse
+    const getPageOrder = (inputSelector) => {
+        const inputs = document.querySelectorAll(inputSelector);
+
+        if (inputs.length === 0) return;
+
+        let searchParams = decodeURIComponent(decodeURIComponent(window.parent.location.hostname + window.parent.location.pathname));
+
+        if (searchParams.indexOf('?') > -1) {
+            const stringTo = searchParams.indexOf('?');
+            searchParams = searchParams.slice(0, stringTo);
+        };
+
+        inputs.forEach(input => {
+            input.value = searchParams;
+        });
+    };
+
+    const setOrderSettings = () => {
+        // Задаем интервал для проверки появления input на странице раз в 0.5 миллисекунд
+        setInterval(() => {
+            // Запускаем наш код для захвата UTM-меток в заказ
+            if (UTMSDealFunction === 1) {
+                UTMSDeal.forEach(([utm, fieldId]) => getUTM(utm, fieldId));
+            }
+            // Запускаем наш код для захвата UTM-меток по пользователю
+            if (UTMSUserFunction === 1) {
+                UTMSUser.forEach(([utm, fieldId]) => getUTM(utm, fieldId));
+            }
+            // Запускаем наш код для захвата создания страницы по заказу
+            if (getPageFunction === 1) {
+                getPageOrder(pageOrderInput);
+            }
+        }, 500);
+    };
+    setOrderSettings();
+});
+

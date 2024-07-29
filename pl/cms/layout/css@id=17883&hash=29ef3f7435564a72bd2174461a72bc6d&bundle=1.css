@@ -1,0 +1,224 @@
+
+
+/*Заливка фона*/
+.gc-account-leftbar,
+.gc-account-leftbar .gc-account-user-menu, .gc-account-leftbar.expanded,
+.gc-account-leftbar .toggle-link {
+  background: #D16C88;
+  -webkit-box-shadow: 4px 4px 20px 6px rgba(204, 55, 96, 0.1);
+          box-shadow: 4px 4px 20px 6px rgba(204, 55, 96, 0.1);
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+/*Цветок*/
+.gc-account-leftbar:before {
+  content: url(https://fs.getcourse.ru/fileservice/file/download/a/78058/sc/344/h/675e4923dc658094caebedbba7fa470f.png);
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/*Оформление пунктов меню*/
+.gc-account-leftbar .gc-account-user-menu li a {
+  background: transparent!important;  
+  width: 70px;
+  height: 60px;
+  -webkit-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+.gc-account-leftbar .gc-account-user-menu li:not(.menu-item-profile) {
+  border-bottom: 1px solid #E2A0B2!important;
+}
+.gc-account-leftbar .gc-account-user-menu .menu-item:not(.menu-item-profile) .menu-item-icon {
+    max-height: 30px!important;
+}
+
+/*Стилизация профиля*/
+.gc-account-leftbar .gc-account-user-menu li.menu-item-profile {
+  margin: 15px 5px;
+  border-bottom:none;
+  width: 60px;
+  height: 60px;
+}
+.gc-account-leftbar .gc-account-user-menu li.menu-item-profile a {
+  border-radius: 50%!important;
+  border: 1px solid #F2D4DC!important;
+}
+.gc-account-leftbar li:first-child a img {
+  border-radius: 50%;
+}
+
+.menu-item-profile .menu-item-icon[src="/public/img/default_profile_50.png"] {
+    content: url("https://fs.getcourse.ru/fileservice/file/download/a/78058/sc/342/h/b3e96e49aaecd8b3e8bf0365d4415f4a.svg");
+}
+
+/*Стили при наведении на пункты меню*/
+.gc-account-leftbar .gc-account-user-menu li a:hover, .gc-account-leftbar .gc-account-user-menu li.selected a 
+{
+  background: #E2A0B2!important;
+}
+.gc-account-leftbar .gc-account-user-menu li.active a {
+  background: #F2D4DC!important;
+}
+/*Стилизация активного пункта*/
+.gc-account-leftbar .gc-account-user-menu li.active .menu-item-icon {
+  -webkit-filter: brightness(0) saturate(100%) invert(46%) sepia(87%) saturate(278%) hue-rotate(293deg) brightness(94%) contrast(94%);
+          filter: brightness(0) saturate(100%) invert(46%) sepia(87%) saturate(278%) hue-rotate(293deg) brightness(94%) contrast(94%);
+}
+
+/*Подключаем свою иконку Оповещения*/
+.gc-account-leftbar .gc-account-user-menu li.menu-item-notifications_button_small a img {
+  display: none;
+}
+.gc-account-leftbar .gc-account-user-menu li.menu-item-notifications_button_small a {
+  position: relative;
+}
+.gc-account-leftbar .gc-account-user-menu li.menu-item-notifications_button_small a:before {
+  content: '';
+  position: absolute;
+  background: url(https://fs.getcourse.ru/fileservice/file/download/a/78058/sc/76/h/883b24f288c369995571f6d3be972c0a.png) 50% 50%/contain no-repeat;
+  width: 35px!important;
+  height: 35px!important;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.gc-account-leftbar .gc-account-user-menu li.menu-item-notifications_button_small:hover a:before,
+.gc-account-leftbar .gc-account-user-menu li.menu-item-notifications_button_small.selected a:before
+{
+  -webkit-filter: brightness(0) saturate(100%) invert(46%) sepia(87%) saturate(278%) hue-rotate(293deg) brightness(94%) contrast(94%);
+          filter: brightness(0) saturate(100%) invert(46%) sepia(87%) saturate(278%) hue-rotate(293deg) brightness(94%) contrast(94%);  
+}
+
+/*Уведомления*/
+.gc-account-leftbar .notify-count {
+  font-family: 'Open Sans', sans-serif!important;  
+  font-size: 10px;
+  color: #353535;
+  right: 15px!important;
+  top: 10px;
+  bottom: auto!important;
+  padding: 3px;
+  background: #ffff!important;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu .notify-count {
+  right: 15px!important;
+  top: auto!important;
+  bottom: auto!important;
+  background: #D16C88!important;
+  color: #ffff;
+}
+
+/*Подписи*/
+.gc-account-leftbar .menu-item-label {
+  font-family: 'CAT Linz', sans-serif!important;  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 8px;
+  color: #ffff!important;
+}
+.gc-account-leftbar .gc-account-user-menu li a:hover .menu-item-label,
+.gc-account-leftbar .gc-account-user-menu li.selected .menu-item-label {
+  color: #ffff!important;
+}
+.gc-account-leftbar .gc-account-user-menu li.active .menu-item-label {
+  color: #D16C88!important;
+}
+
+/*Подменю*/
+.gc-account-leftbar .gc-account-user-submenu-bar {
+ min-width: 230px;
+ background: #FCF9F9!important;
+ -webkit-box-shadow: 0px 4px 30px 5px rgba(209, 108, 136, 0.07);
+         box-shadow: 0px 4px 30px 5px rgba(209, 108, 136, 0.07);
+ border-top-right-radius: 30px;
+ border-bottom-right-radius: 30px;
+}  
+.gc-account-leftbar .gc-account-user-submenu-bar:before {
+  content: url(https://fs.getcourse.ru/fileservice/file/download/a/78058/sc/178/h/79115380a595400abae0fd6aa6295cbb.png);
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.gc-account-user-submenu-bar h3 {
+  font-family: 'CAT Linz', sans-serif!important;  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 29px;
+  color: #353535!important;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu li a {
+  font-family: 'Open Sans', sans-serif!important;  
+  font-style: normal;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #353535!important;
+  /*opacity: 0.7;*/
+  padding: 8px 10px 8px 30px;
+  -webkit-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+/*Выезжающий фон при наведении на пункты меню*/
+.gc-account-user-submenu-bar .gc-account-user-submenu li {
+    position: realtive;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu li a {
+    position: relative !important;
+    z-index: 9999;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu li::after {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background: #D16C88!important;
+    top:0;
+    left:0;
+    -webkit-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    z-index: 0;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu li a:hover {
+    background: transparent;
+    color: #FCF9F9!important;
+    z-index: 1;
+    text-decoration: none;
+}
+.gc-account-user-submenu-bar .gc-account-user-submenu li:hover::after {
+    width: 100%;
+}
+/*.gc-account-user-submenu-bar .gc-account-user-submenu li a:hover {
+  background: #D16C88!important;
+  -webkit-box-shadow: 0px 0px 8px rgba(209, 108, 136, 0.11);
+          box-shadow: 0px 0px 8px rgba(209, 108, 136, 0.11);
+  color: #FCF9F9!important;
+}*/
+
+/*Меню-бургер*/
+.gc-account-leftbar>a.toggle-link.without-icon>img {  
+content:url('https://fs.getcourse.ru/fileservice/file/download/a/78058/sc/249/h/50244490b66e78c93fa4abada85df47f.svg');
+}
+
+@media (max-width:640px) {
+.gc-account-leftbar .menu-item-label {
+    margin-bottom: 3px;
+    margin-top: 0px;
+    font-family: 'CAT Linz', sans-serif!important;  
+    }
+.gc-account-leftbar .notify-count {
+    font-family: 'Open Sans', sans-serif!important;  
+    width: 23px;
+    }
+    .gc-account-user-submenu-bar h3 {
+  font-family: 'CAT Linz', sans-serif!important;  
+    }
+}

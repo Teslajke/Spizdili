@@ -1,0 +1,13 @@
+$(document).ready(function(){
+   $('.gc-main-content').prepend('<div class="top-notification-wrapper"></div>');
+   $.get('/popupbanner', function (data) {  
+   $('.top-notification-wrapper').html( $('.popupbanner .info-wrapper', data).html() ) 
+      });
+   
+   setTimeout(function() {
+      $(".banner-close").on("click", function() {
+       $(this).parents(".common-banner-wrapper").addClass('hide_banners'); 
+		});
+    }, 1000);
+    
+}); 
